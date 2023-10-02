@@ -32,7 +32,7 @@ export class App extends Component {
         const { data } = await fetchPictures(inputValue, page);
         if (data.hits.length) {
           this.setState({
-            images: data.hits,
+            images: [...prevState.images, ...data.hits],
           })
         } else {
           Notify.info('Sorry, there are no images on your request. Try again.');
@@ -71,13 +71,15 @@ export class App extends Component {
   };
 
   onImgClick = (evt) => {
-    this.setState({ showModal: true })
-    this.setState({ modalImg: evt.target.dataset.largeimg })
-  }
+    this.setState({
+      showModal: true,
+      modalImg: evt.target.dataset.largeimg,
+    })
+  };
 
   onCloseModal = () => {
     this.setState({ showModal: false });
-  }
+  };
 
 
   render() {
