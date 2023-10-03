@@ -24,7 +24,7 @@ export class App extends Component {
   };
 
   async componentDidUpdate(_, prevState) {
-    const { inputValue, page, imgPerPage } = this.state;
+    const { inputValue, page, imgPerPage, images} = this.state;
 
     if (inputValue !== prevState.inputValue || page !== prevState.page) {
       try {
@@ -32,7 +32,7 @@ export class App extends Component {
         const { data } = await fetchPictures(inputValue, page);
         if (data.hits.length) {
           this.setState({
-            images: [...prevState.images, ...data.hits],
+            images: [...images, ...data.hits],
           })
         } else {
           Notify.info('Sorry, there are no images on your request. Try again.');
