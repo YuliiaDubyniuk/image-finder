@@ -11,7 +11,6 @@ A React-based image search app that lets users find pictures using the Pixabay A
 - Load more images with "Load More" button  
 - Loading indicators during fetch requests  
 - Error and empty-result handling  
-- Dark/light theme toggle (if implemented)  
 
 ---
 
